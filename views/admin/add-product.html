@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Add product</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">shop</a></li>
+                <li><a href="/products">products</a></li>
+                <li><a href="/cart">cart</a></li>
+                <li><a href="/orders">orders</a></li>
+                <li><a href="/admin/add-product">add-product</a></li>
+                <li><a href="/admin/products">admin products</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="/admin/add-product" method="POST">
+           
+            <label for='title'>Title</label><input type="text" name="title"/>
+            <label for='title'>Image Url</label><input type="text" name="imageUrl"/>
+            <label for='title'>Peice</label><input type="text" name="price"/>
+            <label for='title'>Descrition</label><input type="text" name="description"/>
+            <button type="submit">add product</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -12,12 +12,19 @@
         <nav>
             <ul>
                 <li><a href="/">shop</a></li>
+                <li><a href="/products">products</a></li>
+                <li><a href="/cart">cart</a></li>
+                <li><a href="/orders">orders</a></li>
                 <li><a href="/admin/add-product">add-product</a></li>
+                <li><a href="/admin/products">admin products</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <form action="/admin/add-product" method="POST"><input type="text" name="title"/><button type="submit">add product</button></form>
+        <form action="/add-product">
+            <button type="submit">add to cart</button>
+        </form>
+        
     </main>
 </body>
 </html>
