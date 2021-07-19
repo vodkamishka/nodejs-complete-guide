@@ -5,16 +5,22 @@ const dirRoot = require('../util/path');
 const Product = require('../models/product');
 
 exports.getProducts = (req, res, next) => {
-    res.sendFile(path.join(dirRoot, 'views', 'shop', 'product-list.html'));
     Product.fetchAll(products => {
+        res.render('shop/product-list', {prods: products, docTitle: 'Products'})
         console.log(products);
     });
 }
 
+exports.getProduct = (req, res, next) => {
+    const prodId = req.params.productId;
+    Product.findById(prodId, product => {
+        res.render('shop/product-details', {product, docTitle: 'product-details'})
+    })
+}
+
 exports.getIndex = (req, res, next) => {
-    
     Product.fetchAll(products => {
-        res.sendFile(path.join(dirRoot, 'views', 'shop', 'index.html'));
+        res.render('shop/index', {prods: products, docTitle: 'Shop'})
         console.log(products);
     });
 }

@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{docTitle}
+    body 
+        header
+            nav
+                ul
+                    li
+                        a(href="/") shop
+                    li
+                        a(href="/products") products
+                    li
+                        a(href="/cart") cart
+                    li
+                        a(href="/orders") orders
+                    li
+                        a(href="/admin/add-product") add-product
+                    li
+                        a(href="/admin/products") admin product
+        main
+            div(style="margin: 0 auto") 
+                div(style="display: inline-block; margin: 30px; background: red")
+                    h2 #{product.title}
+                    p #{product.price}
+                    p #{product.description}
+                    form(action='/cart' type="POST")
+                        button(type='submit') add to cart
