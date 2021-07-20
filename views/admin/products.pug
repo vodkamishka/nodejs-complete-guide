@@ -27,6 +27,6 @@ html(lang="en")
                     h2 #{product.title}
                     p #{product.price}
                     p #{product.description}
-                    a(href="/admin/edit-product") edit
+                    a(href="/admin/edit-product/") edit
                     form(action="/admin/delete-product" method="POST")
                         button(type="submit") delete

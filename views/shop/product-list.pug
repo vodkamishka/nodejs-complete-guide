@@ -28,6 +28,6 @@ html(lang="en")
                     p #{product.price}
                     p #{product.description}
                     a(href=`/products/${product.id}`) details
-                    form(action="/admin/add-to-cart" method="POST")
-                        button(type="submit") add to cart
-                        
+                    form(action='/cart' method="POST")
+                        input(type='hidden' name="productId" value=product.id)
+                        button(type='submit') add to cart
