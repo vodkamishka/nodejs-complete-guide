@@ -5,7 +5,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title #{docTitle}
-    body 
+    body
         header
             nav
                 ul
@@ -22,12 +22,15 @@ html(lang="en")
                     li
                         a(href="/admin/products") admin product
         main
-            each product in prods
-                div(style="display: inline-block; margin: 30px")
-                    h2 #{product.title}
-                    p #{product.price}
-                    p #{product.description}
-                    a(href=`/admin/edit-product/${product.id}?edit=true`) edit
-                    form(action="/admin/delete-product" method="POST")
-                        input(type="hidden" value=product.id name="productId")
-                        button(type="submit") delete
+            if products.length > 0
+                ul
+                    each product in products
+                        li
+                            p #{product.productData.title} (#{product.qty})
+                            form(action='/cart-delete-item' method='post')
+                                input(type='hidden' value=product.productData.id name='productId')
+                                button(type='submit') Delete item
+
+
+            else
+                h1 No products
