@@ -22,10 +22,11 @@ html(lang="en")
                     li
                         a(href="/admin/products") admin product
         main
-            div(style="margin: 0 auto") 
-                div(style="display: inline-block; margin: 30px; background: red")
+            div(style="display: inline-block; margin: 30px auto; display: flex; flex-direction: column; width: 300px; align-items: center")
+                    h1 Product Details
                     h2 #{product.title}
                     p #{product.price}
+                    img(src=product.imageUrl height=100)
                     p #{product.description}
                     form(action='/cart' method="POST")
                         input(type='hidden' name="productId" value=product.id)

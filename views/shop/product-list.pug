@@ -21,11 +21,12 @@ html(lang="en")
                         a(href="/admin/add-product") add-product
                     li
                         a(href="/admin/products") admin product
-        main
+        main(style="display: flex")
             each product in prods
-                div(style="display: inline-block; margin: 30px")
+                div(style="display: inline-block; margin: 30px; display: flex; flex-direction: column; width: 150px; align-items: center")
                     h2 #{product.title}
                     p #{product.price}
+                    img(src=product.imageUrl height=100)
                     p #{product.description}
                     a(href=`/products/${product.id}`) details
                     form(action='/cart' method="POST")
