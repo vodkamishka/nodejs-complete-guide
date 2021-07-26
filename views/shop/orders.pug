@@ -22,16 +22,14 @@ html(lang="en")
                     li
                         a(href="/admin/products") admin product
         main
-            if products.length > 0
-                ul
-                    each product in products
-                        li
-                            p #{product.title} (#{product.cartItem.quantity})
-                            form(action='/cart-delete-item' method='post')
-                                input(type='hidden' value=product.id name='productId')
-                                button(type='submit') Delete item
-
-                form(action='/create-order' method='post')
-                    button(type='submit') order now
+            if orders.length <= 0
+                h1 Nothing there!
             else
-                h1 No products
+                ul 
+                    each order in orders
+                        li 
+                            h1 #{order.id}
+                                ul 
+                                    each product in order.products 
+                                        li
+                                            p #{product.title} (#{product.orderItem.quantity})
