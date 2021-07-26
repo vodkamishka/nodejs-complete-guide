@@ -26,9 +26,9 @@ html(lang="en")
                 ul
                     each product in products
                         li
-                            p #{product.productData.title} (#{product.qty})
+                            p #{product.title} (#{product.cartItem.quantity})
                             form(action='/cart-delete-item' method='post')
-                                input(type='hidden' value=product.productData.id name='productId')
+                                input(type='hidden' value=product.id name='productId')
                                 button(type='submit') Delete item
 
 
