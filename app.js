@@ -1,8 +1,8 @@
 const express = require('express');
 
 const errorController = require('./controllers/error');
-const mongoConnect = require('./util/database').mongoConnect;
 const User = require('./models/user');
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -15,9 +15,9 @@ const shopRoutes = require('./routes/shop');
 app.use(express.urlencoded({extended: true}));
 
 app.use((req, res, next) => {
-    User.findById('6100de2f207b05d8d8b45f75')
+    User.findById('6101926db0d5ad406866bdda')
         .then(user => {
-            req.user = new User(user.name, user.email, user.cart, user._id);
+            req.user = user;
             next();
         })
         .catch(err => console.log(err));
@@ -28,7 +28,22 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
+mongoose
+    .connect('mongodb+srv://userAndrey:test123@cluster0.la1dq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => {
+        User.findOne().then(user => {
+            if (!user) {
+                const user = new User({
+                    name: "Andru",
+                    email: "andrtomsk@narod.ru",
+                    cart: {
+                        items: []
+                    }
+                })
+                user.save();
+            }
+        })
 
-mongoConnect(() => {
-    app.listen(3000);
-})
+        app.listen(3000);
+    })
+    .catch(err => console.log(err))
