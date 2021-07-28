@@ -28,7 +28,7 @@ html(lang="en")
                     p #{product.price}
                     img(src=product.imageUrl height=100)
                     p #{product.description}
-                    a(href=`/products/${product.id}`) details
+                    a(href=`/products/${product._id}`) details
                     form(action='/cart' method="POST")
-                        input(type='hidden' name="productId" value=product.id)
+                        input(type='hidden' name="productId" value=product._id)
                         button(type='submit') add to cart

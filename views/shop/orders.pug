@@ -28,8 +28,8 @@ html(lang="en")
                 ul 
                     each order in orders
                         li 
-                            h1 #{order.id}
+                            h1 #{order._id}
                                 ul 
                                     each product in order.products 
                                         li
-                                            p #{product.title} (#{product.orderItem.quantity})
+                                            p #{product.title} (#{product.quantity})

@@ -7,8 +7,6 @@ const mongoConnect = callback => {
     MongoClient
     .connect('mongodb+srv://userAndrey:test123@cluster0.la1dq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
     .then(client => {
-        console.log(111)
-        console.log('connected');
         _db = client.db();
         callback();
     })
@@ -27,6 +25,3 @@ const getDb = () => {
 
 exports.mongoConnect = mongoConnect;
 exports.getDb = getDb;
-
-
-

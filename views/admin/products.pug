@@ -28,7 +28,7 @@ html(lang="en")
                     p #{product.price}
                     img(src=product.imageUrl height=100)
                     p #{product.description}
-                    a(href=`/admin/edit-product/${product.id}?edit=true`) edit
+                    a(href=`/admin/edit-product/${product._id}?edit=true`) edit
                     form(action="/admin/delete-product" method="POST")
-                        input(type="hidden" value=product.id name="productId")
+                        input(type="hidden" value=product._id name="productId")
                         button(type="submit") delete

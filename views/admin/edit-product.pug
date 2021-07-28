@@ -38,7 +38,7 @@ html(lang="en")
                 label(for='title') Descrition
                 input(type="text" name="description" value=description)
                 if editing
-                    input(type="hidden" value=product.id name='productId')
+                    input(type="hidden" value=product._id name='productId')
                 button(type="submit") 
                     if editing
                         div update product
