@@ -3,7 +3,8 @@ const Product = require('../models/product');
 exports.getAddProduct = (req, res, next) => {
     res.render('admin/edit-product', {
         docTitle: 'Add Product',
-        editing: false
+        editing: false,
+        isAuthenticated: req.session.isLoggedIn
     })
 }
 
@@ -16,7 +17,7 @@ exports.postAddProduct = (req, res, next) => {
         price,
         description,
         imageUrl,
-        userId: req.user._id
+        userId: req.session.user._id
     });
     product
         .save()
@@ -42,7 +43,8 @@ exports.getEditProduct = (req, res, next) => {
             res.render('admin/edit-product', {
                 docTitle: 'Edit Product',
                 editing: editMode,
-                product
+                product,
+                isAuthenticated: req.session.isLoggedIn
             })
         })
         .catch(err => console.log(err))
@@ -74,7 +76,7 @@ exports.postEditProduct = (req, res, next) => {
 exports.getProducts = (req, res, next) => {
     Product.find()
         .then(products => {
-            res.render('admin/products', {prods: products, docTitle: 'Shop'})
+            res.render('admin/products', {prods: products, docTitle: 'Shop', isAuthenticated: req.isLoggedIn})
         })
         .catch(err => console.log(err))
 }

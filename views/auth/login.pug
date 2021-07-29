@@ -24,28 +24,16 @@ html(lang="en")
                         a(href="/orders") orders
                     li
                         a(href="/login") login
-                        form(action="/logout" method='post')
-                            button(type="submit") logout
                     if isAuthenticated
                         li
                             a(href="/admin/add-product") add-product
                         li
                             a(href="/admin/products") admin product
         main
-            form(action=`/admin/${insert}` method="POST")
-           
-                label(for='title') Title
-                input(type="text" name="title" value=title)
-                label(for='title') Image Url
-                input(type="text" name="imageUrl" value=imageUrl)
-                label(for='title') Price
-                input(type="text" name="price" value=price)
-                label(for='title') Descrition
-                input(type="text" name="description" value=description)
-                if editing
-                    input(type="hidden" value=product._id name='productId')
-                button(type="submit") 
-                    if editing
-                        div update product
-                    else 
-                        div add product
+            form(action=`/login` method="POST")
+
+                label(for='email') E-mail
+                input(type="email" name="email" id="email")
+                label(for="password") Password
+                input(type="password" name="password" id="password")
+                button(type="submit") Login

@@ -18,9 +18,14 @@ html(lang="en")
                     li
                         a(href="/orders") orders
                     li
-                        a(href="/admin/add-product") add-product
-                    li
-                        a(href="/admin/products") admin product
+                        a(href="/login") login
+                        form(action="/logout" method='post')
+                            button(type="submit") logout
+                    if isAuthenticated
+                        li
+                            a(href="/admin/add-product") add-product
+                        li
+                            a(href="/admin/products") admin product
         main
             if orders.length <= 0
                 h1 Nothing there!

@@ -18,9 +18,14 @@ html(lang="en")
                     li
                         a(href="/orders") orders
                     li
-                        a(href="/admin/add-product") add-product
-                    li
-                        a(href="/admin/products") admin product
+                        a(href="/login") login
+                        form(action="/logout" method='post')
+                            button(type="submit") logout
+                    if isAuthenticated
+                        li
+                            a(href="/admin/add-product") add-product
+                        li
+                            a(href="/admin/products") admin product
         main
             div(style="display: inline-block; margin: 30px auto; display: flex; flex-direction: column; width: 300px; align-items: center")
                     h1 Product Details
