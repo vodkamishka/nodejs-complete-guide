@@ -12,25 +12,7 @@ html(lang="en")
         - var price = editing && product.price;
         - var description = editing && product.description;
         header
-            nav
-                ul
-                    li
-                        a(href="/") shop
-                    li
-                        a(href="/products") products
-                    li
-                        a(href="/cart") cart
-                    li
-                        a(href="/orders") orders
-                    li
-                        a(href="/login") login
-                        form(action="/logout" method='post')
-                            button(type="submit") logout
-                    if isAuthenticated
-                        li
-                            a(href="/admin/add-product") add-product
-                        li
-                            a(href="/admin/products") admin product
+            include ../snapshot/navigation.pug
         main
             form(action=`/admin/${insert}` method="POST")
            

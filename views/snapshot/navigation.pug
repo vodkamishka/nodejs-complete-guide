@@ -1,0 +1,22 @@
+nav
+    ul
+        li
+            a(href="/") shop
+        li
+            a(href="/products") products
+        if isAuthenticated
+            li
+                a(href="/cart") cart
+            li
+                a(href="/orders") orders
+            li
+                a(href="/admin/add-product") add-product
+            li
+                a(href="/admin/products") admin product
+        if isAuthenticated
+            li
+                form(action="/logout" method='post')
+                    button(type="submit") logout
+        else
+            li
+                a(href="/login") login   
